@@ -1,52 +1,68 @@
 [
   {
-    "id": "1",
-    "name": "Not Interested",
-    "icon": "NotInterested"
+    "id": "food",
+    "name": "Food",
+    "icon": "RestaurantRounded",
+    "active": true
   },
   {
-    "id": "2",
-    "name": "Open",
-    "icon": "Open"
+    "id": "cultural",
+    "name": "Cultural",
+    "icon": "MuseumRounded",
+    "active": true
   },
   {
-    "id": "3",
-    "name": "Attempting",
-    "icon": "Attempting"
+    "id": "entertainment",
+    "name": "Entertainment",
+    "icon": "LocalActivityRounded",
+    "active": true
   },
   {
-    "id": "4",
-    "name": "Engaged",
-    "icon": "Engaged"
+    "id": "transport",
+    "name": "Transport",
+    "icon": "TrainRounded",
+    "active": true
   },
   {
-    "id": "5",
-    "name": "Presented",
-    "icon": "Presented"
+    "id": "accomodation",
+    "name": "Accomodation",
+    "icon": "HotelRounded",
+    "active": true
   },
   {
-    "id": "6",
-    "name": "Signed",
-    "icon": "Signed"
+    "id": "landmark",
+    "name": "Landmark",
+    "icon": "PlaceRounded",
+    "active": true
   },
   {
-    "id": "7",
-    "name": "Completed",
-    "icon": "Completed"
+    "id": "architecture",
+    "name": "Architecture",
+    "icon": "ArchitectureRounded",
+    "active": false
   },
   {
-    "id": "8",
-    "name": "Credit Check",
-    "icon": "CreditCheck"
+    "id": "shopping",
+    "name": "Shopping",
+    "icon": "ShoppingCartRounded",
+    "active": true
   },
   {
-    "id": "9",
-    "name": "Pending",
-    "icon": "Pending"
+    "id": "nightlife",
+    "name": "Nightlife",
+    "icon": "NightlifeRounded",
+    "active": false
   },
   {
-    "id": "10",
-    "name": "Close",
-    "icon": "Close"
+    "id": "event",
+    "name": "Event",
+    "icon": "ConfirmationNumberRounded",
+    "active": true
+  },
+  {
+    "id": "nature",
+    "name": "Nature",
+    "icon": "ParkRounded",
+    "active": true
   }
 ]

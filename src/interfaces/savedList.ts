@@ -6,4 +6,5 @@ export interface ISavedList {
   hidden?: boolean;
   archieved?: boolean;
   markers: string[];
+  color: string;
 }

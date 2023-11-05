@@ -15,7 +15,7 @@ export const DefaultLayout = () => {
       <ThemeProvider theme={Themes.defaultTheme(theme)}>
         <MapProvider>
           <Box>
-            <Sidebar.Menu />
+            <Sidebar.Navbar />
             <Outlet />
           </Box>
         </MapProvider>

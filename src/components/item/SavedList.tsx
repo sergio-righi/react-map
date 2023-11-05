@@ -1,15 +1,21 @@
 import React, { useState } from "react";
-import { IconButton, ListItem, ListItemText } from "@mui/material";
+import {
+  IconButton,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import { useApp } from "contexts";
 import { Menu } from "components";
 import { Combines } from "helpers";
 
 // icons
-import { MoreVertRounded } from "@mui/icons-material";
+import { MoreVertRounded, SquareRounded } from "@mui/icons-material";
 
 type Props = {
   id: string;
   text: string;
+  color: string;
   count: number;
   hidden?: boolean;
   onEdit?: (id: string) => void;
@@ -60,6 +66,9 @@ export const SavedList = ({ hidden = false, ...props }: Props) => {
         </IconButton>
       }
     >
+      <ListItemIcon>
+        <SquareRounded sx={{ color: props.color }} />
+      </ListItemIcon>
       <ListItemText
         primary={props.text}
         secondary={Combines.interpolate(t.message.saved_list.item_subtitle, {

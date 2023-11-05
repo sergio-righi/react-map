@@ -21,7 +21,7 @@ export class LeadData implements ILeadData {
 
   async statuses(): Promise<ApiResponse<IActivityStatus[]>> {
     return await Auxiliars.asyncMethod(() => ({
-      status: Enums.EnumResponse.Success, payload: ActivityStatuses
+      status: Enums.EnumResponse.Success, payload: ActivityStatuses.filter((status: IActivityStatus) => status.active)
     }));
   }
 

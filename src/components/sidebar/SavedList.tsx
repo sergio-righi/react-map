@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { List, ListItem, ListItemText } from "@mui/material";
-import { Custom, Item, Modal, Popup, Progress } from "components";
+import { Custom, Item, Modal, Progress } from "components";
 import { useApp, useMap, useService, useTheme } from "contexts";
 import { IMarker, ISavedList } from "interfaces";
 import { Coordinate } from "types";
@@ -9,12 +9,11 @@ import { Coordinate } from "types";
 import { AddRounded } from "@mui/icons-material";
 
 type Props = {
-  open: boolean;
   onClose: () => void;
   onGo: (coordinate: Coordinate) => void;
 };
 
-export const SavedList = ({ open = false, ...props }: Props) => {
+export const SavedList = (props: Props) => {
   const { t } = useApp();
   const { theme } = useTheme();
   const { lead } = useService();
@@ -88,55 +87,49 @@ export const SavedList = ({ open = false, ...props }: Props) => {
   }
 
   return (
-    <Popup.Root
-      open={open}
-      onClose={props.onClose}
-      title={t.title.saved_list}
-      sx={{ top: theme.spacing.default, left: theme.spacing.default * 3.5 }}
-    >
-      <>
-        <List dense>
-          <ListItem>
-            <ListItemText primary={t.title.list} />
-            <Custom.Button
-              text
-              size="small"
-              onClick={handleSavedListCreateClick}
-              startIcon={<AddRounded />}
-            >
-              {t.action.create}
-            </Custom.Button>
+    <>
+      <List dense>
+        <ListItem>
+          <ListItemText primary={t.title.list} />
+          <Custom.Button
+            text
+            size="small"
+            onClick={handleSavedListCreateClick}
+            startIcon={<AddRounded />}
+          >
+            {t.action.create}
+          </Custom.Button>
+        </ListItem>
+        {savedLists.length > 0 ? (
+          savedLists.map((item: ISavedList) => {
+            return (
+              <Item.SavedList
+                id={item.id}
+                key={item.id}
+                text={item.name}
+                color={item.color}
+                hidden={item.hidden}
+                count={item.markers.length}
+                onGo={handleSavedListGoClick}
+                onEdit={handleSavedListEditClick}
+                onRename={handleSavedListRenameClick}
+                onDelete={handleSavedListDeleteClick}
+                onVisibility={handleSavedListVisibilityClick}
+              />
+            );
+          })
+        ) : (
+          <ListItem sx={{ position: "relative" }}>
+            <Progress.NoRecord height={150} />
           </ListItem>
-          {savedLists.length > 0 ? (
-            savedLists.map((item: ISavedList) => {
-              return (
-                <Item.SavedList
-                  id={item.id}
-                  key={item.id}
-                  text={item.name}
-                  hidden={item.hidden}
-                  count={item.markers.length}
-                  onGo={handleSavedListGoClick}
-                  onEdit={handleSavedListEditClick}
-                  onRename={handleSavedListRenameClick}
-                  onDelete={handleSavedListDeleteClick}
-                  onVisibility={handleSavedListVisibilityClick}
-                />
-              );
-            })
-          ) : (
-            <ListItem sx={{ position: "relative" }}>
-              <Progress.NoRecord height={150} />
-            </ListItem>
-          )}
-        </List>
-        <Modal.SavedList
-          open={savedListModal}
-          savedList={selectedSavedList}
-          onClose={handleSavedListModalClose}
-          onSubmit={handleSavedListSubmit}
-        />
-      </>
-    </Popup.Root>
+        )}
+      </List>
+      <Modal.SavedList
+        open={savedListModal}
+        savedList={selectedSavedList}
+        onClose={handleSavedListModalClose}
+        onSubmit={handleSavedListSubmit}
+      />
+    </>
   );
 };

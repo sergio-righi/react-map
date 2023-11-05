@@ -6,8 +6,6 @@ import { Constants, Enums } from "utils";
 interface ProvidedValueType {
   coordinate: Coordinate;
   setCoordinate: (coordinate: Coordinate) => void;
-  editable: boolean;
-  setEditable: (editable: boolean) => void;
   markers: () => IMarker[];
   setMarkers: (
     marker: IMarker | IMarker[] | string | undefined,
@@ -39,7 +37,6 @@ const initState = {
     lat: Constants.MAPBOX.LATITUDE,
     lng: Constants.MAPBOX.LONGITUDE,
   } as Coordinate,
-  editable: true,
   markers: [] as IMarker[],
   menu: Enums.EnumMenu.Map,
   savedList: null,
@@ -51,8 +48,6 @@ const initState = {
 export const MapContext = createContext<ProvidedValueType>({
   coordinate: initState.coordinate,
   setCoordinate: () => {},
-  editable: false,
-  setEditable: () => {},
   markers: () => [],
   setMarkers: () => {},
   setMarkerSavedList: () => {},
@@ -77,7 +72,6 @@ export const MapProvider = React.memo<Props>(({ children }: Props) => {
   const [coordinate, setCoordinate] = React.useState<Coordinate>(
     initState.coordinate
   );
-  const [editable, setEditable] = React.useState<boolean>(initState.editable);
   const [menu, setMenu] = React.useState<Enums.EnumMenu>(initState.menu);
   const [savedList, setSavedList] = React.useState<ISavedList | null>(
     initState.savedList
@@ -99,11 +93,22 @@ export const MapProvider = React.memo<Props>(({ children }: Props) => {
     const filteredSavedLists = savedLists
       .filter((item: ISavedList) => !item.hidden)
       .map((item: ISavedList) => item.id);
-    return pins.filter(
-      (item: IMarker) =>
-        item.savedListId === null ||
-        filteredSavedLists.includes(item.savedListId)
-    );
+    return pins
+      .filter(
+        (item: IMarker) =>
+          item.savedListId === null ||
+          filteredSavedLists.includes(item.savedListId)
+      )
+      .map((item: IMarker) =>
+        item.savedListId
+          ? ({
+              ...item,
+              color: savedLists.find(
+                (subitem: ISavedList) => subitem.id === item.savedListId
+              )?.color,
+            } as IMarker)
+          : item
+      );
   }, [pins, savedLists]);
 
   /**
@@ -315,8 +320,6 @@ export const MapProvider = React.memo<Props>(({ children }: Props) => {
     const value: ProvidedValueType = {
       coordinate,
       setCoordinate,
-      editable,
-      setEditable,
       markers,
       setMarkers: setMarkersCallback,
       setMarkerSavedList: setMarkerSavedListCallback,
@@ -334,7 +337,6 @@ export const MapProvider = React.memo<Props>(({ children }: Props) => {
     return value;
   }, [
     coordinate,
-    editable,
     markers,
     setMarkersCallback,
     setMarkerSavedListCallback,

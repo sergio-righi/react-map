@@ -62,9 +62,9 @@ export const MAPBOX = {
   API_KEY: String(process.env.REACT_APP_MAPBOX_API_KEY).trim(),
   MIN_ZOOM: 0,
   MAX_ZOOM: 21,
-  ZOOM: 19,
-  LATITUDE: 37.6921157,
-  LONGITUDE: -121.7719721,
+  ZOOM: 17,
+  LATITUDE: 43.6547562,
+  LONGITUDE: -79.3997669,
 }
 
 export const REFRESH_RATE = {

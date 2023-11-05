@@ -91,7 +91,7 @@
       "delete": "Delete",
       "edit": "Edit",
       "generate_design": "Generate Design",
-      "saved_list": "Saved List",
+      "saved_list": "List",
       "view_design": "View Design"
     },
     "saved_list": {
@@ -277,7 +277,7 @@
     "overview": "Overview",
     "owner_details": "Owner",
     "property": "Property",
-    "saved_list": "Saved List",
+    "saved_list": "List",
     "search": "Search"
   }
 }

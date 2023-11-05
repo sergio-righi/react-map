@@ -1,6 +1,7 @@
 export * as Button from './button'
 export * as Controller from './controller'
 export * as Custom from './custom'
+export * as DataGrid from './datagrid'
 export * as Dialog from './dialog'
 export * as Error from './error'
 export * as Form from './form'

@@ -1,6 +1,5 @@
-import Logo from './logo.png';
+import { ReactComponent as Logo } from "./lazy-company-icon.svg";
 
-// TODO : not being used
 import SatelliteView from './satellite-view.png';
 import StreetView from './street-view.png';
 

@@ -12,7 +12,6 @@ type Props = {
   layers?: boolean;
   markers?: IMarker[];
   drawing?: boolean;
-  editable?: boolean;
   draggable?: boolean;
   coordinate?: Coordinate;
   status?: string;
@@ -20,8 +19,6 @@ type Props = {
   onClick?: (marker: IMarker) => void;
   onUpdate?: (marker: IMarker) => void;
   onAdd?: (coordinate: Coordinate, address: string) => void;
-  onGenerateDesign?: (marker: IMarker, coordinate: Coordinate) => void;
-  onEdit?: (marker: IMarker) => void;
   onDelete?: (id: string, savedListId: string | null) => void;
   onListChange: (
     markerId: string,
@@ -35,7 +32,6 @@ export const Mapbox = ({
   filters = [],
   layers = false,
   drawing = false,
-  editable = false,
   draggable = false,
   ...props
 }: Props) => {
@@ -71,7 +67,6 @@ export const Mapbox = ({
 
   // TODO : add the type of the event
   async function handleMapClick(event: any) {
-    if (!editable) return;
     const { lat, lng } = event.lngLat;
     props.onAdd && props.onAdd(event.lngLat, await fetchAddress(lat, lng));
   }
@@ -123,16 +118,13 @@ export const Mapbox = ({
             return (
               <Vendor.Marker
                 key={item.id}
-                size="large"
+                size="small"
                 marker={item}
-                editable={editable}
-                onEdit={props.onEdit}
                 onClick={props.onClick}
                 onDelete={props.onDelete}
                 onUpdate={props.onUpdate}
                 onListChange={props.onListChange}
                 onListCreate={props.onListCreate}
-                onGenerateDesign={props.onGenerateDesign}
               />
             );
           })}

@@ -27,9 +27,9 @@ export const Layer = (props: Props) => {
 
   const layerName =
     viewMode === Enums.EnumMapboxLayer.Street
-      ? t.label.street
-      : viewMode === Enums.EnumMapboxLayer.Satellite
       ? t.label.satellite
+      : viewMode === Enums.EnumMapboxLayer.Satellite
+      ? t.label.street
       : null;
 
   return (
@@ -37,7 +37,7 @@ export const Layer = (props: Props) => {
       sx={{
         zIndex: 1,
         width: 80,
-        height: 50,
+        height: 80,
         cursor: "pointer",
         overflow: "hidden",
         position: "absolute",
@@ -75,12 +75,13 @@ export const Layer = (props: Props) => {
         }}
       >
         <Custom.Typography
-          sx={{
-            color:
-              viewMode === Enums.EnumMapboxLayer.Street
-                ? theme.color.white
-                : theme.palette.font.color,
-          }}
+          size={theme.font.sm}
+          weight={theme.font.normal}
+          color={
+            viewMode === Enums.EnumMapboxLayer.Street
+              ? theme.color.white
+              : theme.palette.font.color
+          }
         >
           {layerName}
         </Custom.Typography>

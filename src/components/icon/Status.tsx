@@ -5,18 +5,18 @@ import { Auxiliars } from "helpers";
 
 // icons
 import {
-  ChatBubble,
-  Check,
-  DoubleCheck,
-  OpenBook,
-  Phone,
-  Pin,
-  Presentation,
-  SadFace,
-  UserCheck,
-  UserClock,
-  UserPencil,
-} from "assets/icons";
+  RestaurantRounded,
+  MuseumRounded,
+  LocalActivityRounded,
+  TrainRounded,
+  HotelRounded,
+  PlaceRounded,
+  ArchitectureRounded,
+  ShoppingCartRounded,
+  NightlifeRounded,
+  ConfirmationNumberRounded,
+  ParkRounded,
+} from "@mui/icons-material";
 
 type Props = {
   sx?: SxProps;
@@ -24,6 +24,7 @@ type Props = {
   noStyle?: boolean;
   draggable?: boolean;
   status?: string;
+  color?: string;
   size?: "small" | "medium" | "large";
 };
 
@@ -42,42 +43,46 @@ export const Status = forwardRef(
     const { theme } = useTheme();
 
     const iconSize = draggable
-      ? 36
+      ? 64
       : size === "medium"
-      ? 20
+      ? 24
       : size === "large"
-      ? 28
-      : 16;
+      ? 48
+      : 18;
 
     const iconColor = draggable
       ? theme.color.status.error.color
       : noStyle
       ? "currentColor"
-      : Auxiliars.getContrast(theme.color.accent.color);
+      : Auxiliars.getContrast(props.color ?? theme.color.accent.color);
 
     const circleIcon =
-      status === "1" ? (
-        <SadFace fill={iconColor} height={iconSize} />
-      ) : status === "2" ? (
-        <OpenBook fill={iconColor} height={iconSize} />
-      ) : status === "3" ? (
-        <Phone fill={iconColor} height={iconSize} />
-      ) : status === "4" ? (
-        <ChatBubble fill={iconColor} height={iconSize} />
-      ) : status === "5" ? (
-        <Presentation fill={iconColor} height={iconSize} />
-      ) : status === "6" ? (
-        <UserPencil fill={iconColor} height={iconSize} />
-      ) : status === "7" ? (
-        <Check fill={iconColor} height={iconSize} />
-      ) : status === "8" ? (
-        <UserCheck fill={iconColor} height={iconSize} />
-      ) : status === "9" ? (
-        <UserClock fill={iconColor} height={iconSize} />
-      ) : status === "10" ? (
-        <DoubleCheck fill={iconColor} height={iconSize} />
+      status === "food" ? (
+        <RestaurantRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "cultural" ? (
+        <MuseumRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "entertainment" ? (
+        <LocalActivityRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "transport" ? (
+        <TrainRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "accomodation" ? (
+        <HotelRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "landmark" ? (
+        <PlaceRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "architecture" ? (
+        <ArchitectureRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "shopping" ? (
+        <ShoppingCartRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "nightlife" ? (
+        <NightlifeRounded sx={{ color: iconColor, height: iconSize }} />
+      ) : status === "event" ? (
+        <ConfirmationNumberRounded
+          sx={{ color: iconColor, height: iconSize }}
+        />
+      ) : status === "nature" ? (
+        <ParkRounded sx={{ color: iconColor, height: iconSize }} />
       ) : (
-        <Pin fill={iconColor} height={iconSize} />
+        <PlaceRounded sx={{ color: iconColor, height: iconSize }} />
       );
 
     return noStyle ? (
@@ -91,7 +96,7 @@ export const Status = forwardRef(
                 ...props.sx,
                 width: iconSize * 1.5,
                 height: iconSize * 1.5,
-                bgcolor: theme.color.accent.color,
+                bgcolor: props.color ?? theme.color.accent.color,
                 borderRadius: theme.border.circle,
               }
             : {

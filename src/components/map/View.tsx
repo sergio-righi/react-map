@@ -1,18 +1,9 @@
 import { useEffect, useState } from "react";
 import { useApp, useMap, useService, useTheme } from "contexts";
-import {
-  Controller,
-  Custom,
-  Common,
-  Icon,
-  Popup,
-  Vendor,
-  Modal,
-} from "components";
+import { Controller, Custom, Icon, Popup, Vendor, Modal } from "components";
 import { Box } from "@mui/material";
 import { IActivityStatus, IMarker, ISavedList } from "interfaces";
 import { Coordinate } from "types";
-import { Constants, Enums } from "utils";
 
 type Props = {
   zoom?: number;
@@ -28,9 +19,7 @@ export const View = (props: Props) => {
   const { theme } = useTheme();
   const { lead } = useService();
   const {
-    editable,
     savedList,
-    setEditable,
     setMarkers,
     setMarkerSavedList,
     setSavedList,
@@ -74,11 +63,7 @@ export const View = (props: Props) => {
       lng: coordinate.lng,
       address,
       status: status,
-      generated: false,
       savedListId: null,
-      // TODO : uncomment the following lines to load a static design
-      // leadId: Constants.AERIALYTIC.LEAD_ID,
-      // proposalId: Constants.AERIALYTIC.PROPOSAL_ID,
     } as IMarker;
     const { payload } = await lead.insertMarker(newMarker);
     setMarkers({ ...newMarker, id: payload });
@@ -86,16 +71,6 @@ export const View = (props: Props) => {
 
   // handle the click on the marker to open the details popup
   function handleMarkerClick(marker: IMarker) {
-    setMarker(marker);
-  }
-
-  // handle the click on the context menu (generate design) option
-  function handleGenerateDesign(marker: IMarker, coordinate: Coordinate) {
-    setMarker(marker);
-  }
-
-  // handle the click on the context menu (edit information) option
-  function handleMarkerEdit(marker: IMarker) {
     setMarker(marker);
   }
 
@@ -112,20 +87,12 @@ export const View = (props: Props) => {
     setMarkers(id, savedListId);
   }
 
-  function handlEditableClick(state: boolean) {
-    setEditable(state);
-  }
-
   function handleFilterClick(state: boolean) {
     setFilterPopup(state);
   }
 
   function handleFilterClose() {
     setFilterPopup(false);
-  }
-
-  function handlePropertyClose() {
-    setMarker(null);
   }
 
   // handle the click on the context menu (saved list) option
@@ -159,22 +126,25 @@ export const View = (props: Props) => {
   }
 
   return (
-    <Box width={1} height="100vh" position="relative">
+    <Box
+      width={1}
+      height="100vh"
+      position="relative"
+      pl={theme.component.navbar.width / theme.spacing.factor}
+    >
       <Vendor.Mapbox
+        layers={true}
         zoom={props.zoom}
-        editable={editable}
         coordinate={props.coordinate}
         markers={props.markers}
         filters={filters}
         status={props.status}
         onAdd={handleMarkerAdd}
-        onEdit={handleMarkerEdit}
         onClick={handleMarkerClick}
         onDelete={handleMarkerDelete}
         onUpdate={handleMarkerUpdate}
         onListChange={handleListChange}
         onListCreate={handleSavedListCreateClick}
-        onGenerateDesign={handleGenerateDesign}
       />
       <Modal.SavedList
         savedList={null}
@@ -182,55 +152,36 @@ export const View = (props: Props) => {
         onClose={handleSavedListModalClose}
         onSubmit={handleSavedListSubmit}
       />
-      {!editable && (
-        <>
-          <Popup.Filter
-            open={filterPopup}
-            statuses={props.statuses}
-            onFilter={setFilters}
-            onClose={handleFilterClose}
-          />
-          <Custom.Fab
-            bottom
-            right
-            closable
-            icon="filter"
-            state={filterPopup}
-            onStateChange={handleFilterClick}
-          />
-        </>
-      )}
+      <Modal.Marker
+        open={!!savedList}
+        savedList={savedList}
+        onClose={handleMarkerPopupClose}
+      />
+      <Popup.Filter
+        open={filterPopup}
+        statuses={props.statuses}
+        onFilter={setFilters}
+        onClose={handleFilterClose}
+      />
       <Custom.Fab
         bottom
-        left
-        icon="edit"
+        right
         closable
-        state={editable}
-        onStateChange={handlEditableClick}
+        icon="filter"
+        state={filterPopup}
+        onStateChange={handleFilterClick}
       />
-      {editable && (
-        <>
-          <Controller.Chip
-            column
-            sx={{
-              zIndex: 5,
-              position: "absolute",
-              gap: theme.spacing.sm,
-              top: theme.spacing.default,
-              right: theme.spacing.default,
-            }}
-            items={statuses}
-            onSelect={handleStatusClick}
-          />
-          <Common.OverlapMessage
-            sx={{
-              bottom: theme.spacing.default,
-              right: theme.spacing.default,
-            }}
-            message={t.message.map.view}
-          />
-        </>
-      )}
+      <Controller.Chip
+        sx={{
+          zIndex: 5,
+          position: "absolute",
+          gap: theme.spacing.sm,
+          top: theme.spacing.default,
+          right: theme.spacing.default,
+        }}
+        items={statuses}
+        onSelect={handleStatusClick}
+      />
     </Box>
   );
 };

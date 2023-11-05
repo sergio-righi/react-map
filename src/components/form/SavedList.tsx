@@ -1,4 +1,4 @@
-import { Custom } from "components";
+import { Custom, Input } from "components";
 import { useApp, useService, useTheme } from "contexts";
 import { useForm } from "hooks";
 import { Enums } from "utils";
@@ -9,15 +9,18 @@ import { useState } from "react";
 
 export const SavedListFields = {
   name: "name",
+  color: "color",
 };
 
 export type SavedListForm = {
   [key: string]: any;
   name: string;
+  color: string;
 };
 
 export const SavedListInitialState: SavedListForm = {
   name: "",
+  color: "",
 };
 
 type Props = {
@@ -38,6 +41,13 @@ export const SavedList = ({ savedList, ...props }: Props) => {
         },
       },
     } as Field,
+    [SavedListFields.color]: {
+      validates: {
+        [Enums.EnumValidation.Required]: {
+          message: t.message.validation.required,
+        },
+      },
+    },
   });
 
   const { onChange, onValidate, onSubmit, values } = useForm<SavedListForm>(
@@ -75,7 +85,7 @@ export const SavedList = ({ savedList, ...props }: Props) => {
 
   return (
     <Box component="form" onSubmit={onSubmit}>
-      <Grid container mt={theme.spacing.sm}>
+      <Grid container mt={theme.spacing.sm} gap={theme.spacing.sm}>
         <Grid item xs={12}>
           <Custom.TextField
             name={SavedListFields.name}
@@ -88,6 +98,20 @@ export const SavedList = ({ savedList, ...props }: Props) => {
                 : undefined
             }
             error={fields[SavedListFields.name].error}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Input.Color
+            name={SavedListFields.color}
+            value={values.color}
+            onChange={onChange}
+            label={t.label.main_color}
+            helperText={
+              fields[SavedListFields.color].error
+                ? fields[SavedListFields.color].errorText
+                : fields[SavedListFields.color].helperText
+            }
+            error={fields[SavedListFields.color].error}
           />
         </Grid>
       </Grid>

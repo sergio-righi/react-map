@@ -14,5 +14,8 @@ export default {
       mt: 0.375,
       letterSpacing: 0.5,
     }
+  },
+  navbar: {
+    width: 72,
   }
 } as Component;

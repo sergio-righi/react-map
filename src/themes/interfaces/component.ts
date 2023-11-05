@@ -12,5 +12,8 @@ export interface Component {
       mt: number;
       letterSpacing: number;
     }
+  },
+  navbar: {
+    width: number;
   }
 }

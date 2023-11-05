@@ -9,9 +9,6 @@ import { ArrowRightRounded } from "@mui/icons-material";
 
 type Props = {
   marker: IMarker;
-  generated: boolean;
-  onGenerate?: () => void;
-  onEdit?: () => void;
   onDelete?: () => void;
   onClose: () => void;
   onStatusChange?: (id: string) => void;
@@ -20,12 +17,7 @@ type Props = {
   anchorEl: HTMLElement | null;
 };
 
-export const Marker = ({
-  generated = false,
-  anchorEl = null,
-  onClose,
-  ...props
-}: Props) => {
+export const Marker = ({ anchorEl = null, onClose, ...props }: Props) => {
   const { t } = useApp();
   const [listAnchorEl, setListAnchorEl] = useState<HTMLElement | null>(null);
   const [statusAnchorEl, setStatusAnchorEl] = useState<HTMLElement | null>(
@@ -46,16 +38,6 @@ export const Marker = ({
 
   function handleListMenuClose() {
     setListAnchorEl(null);
-  }
-
-  function handleGenerateClick() {
-    onClose();
-    props.onGenerate && props.onGenerate();
-  }
-
-  function handleEditClick() {
-    onClose();
-    props.onEdit && props.onEdit();
   }
 
   function handleDeleteClick() {
@@ -80,13 +62,6 @@ export const Marker = ({
 
   return (
     <MUIMenu onClose={onClose} anchorEl={anchorEl} open={!!anchorEl}>
-      {props.onGenerate && (
-        <MenuItem onClick={handleGenerateClick}>
-          {generated
-            ? t.menu.marker.view_design
-            : t.menu.marker.generate_design}
-        </MenuItem>
-      )}
       {props.onStatusChange && (
         <MenuItem onClick={handleStatusMenuOpen}>
           <ListItemText>{t.menu.marker.activity_status}</ListItemText>
@@ -115,9 +90,6 @@ export const Marker = ({
           onChange={handleListChangeClick}
           onCreate={handleListCreateClick}
         />
-      )}
-      {props.onEdit && (
-        <MenuItem onClick={handleEditClick}>{t.menu.marker.edit}</MenuItem>
       )}
       {props.onDelete && (
         <MenuItem onClick={handleDeleteClick}>{t.menu.marker.delete}</MenuItem>

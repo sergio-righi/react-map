@@ -20,7 +20,7 @@ export const Search = (props: Props) => {
     const response = await Geocoder.searchEngine({
       query: event.target.value,
       limit: 5,
-      countries: ["US"],
+      countries: [],
       types: props.type.split(",") as GeocodeQueryType[],
     });
     props.onSearch && props.onSearch(response);

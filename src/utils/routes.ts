@@ -8,6 +8,6 @@ export default {
     resetPassword: "reset-password/:userId",
   },
   map: {
-    home: "/map"
+    home: "/"
   },
 }
