@@ -1,0 +1,86 @@
+@use "../utils" as *;
+
+.al-auth {
+  position: relative;
+
+  & > .al-container {
+    width: 480px;
+    max-width: 100%;
+    @include center-absolute;
+
+    & > .al-header {
+      margin-bottom: $margin-md;
+    }
+
+    & > .al-content {
+      max-height: 100%;
+      padding: $margin-xl;
+      @include border-radius($border-radius);
+
+      & > .al-page {
+        height: 100%;
+
+        & > .al-wrapper {
+          height: 100%;
+          @include d-flex;
+          @include flex-direction(column);
+
+          & > .al-brand {
+            @include d-flex;
+            padding: $margin-xl 0;
+            @include justify-content(center);
+
+            & > * {
+              max-width: 250px;
+            }
+          }
+
+          & > .al-header {
+            padding: 0 $margin-md;
+
+            & > .title {
+              display: block;
+              font-size: $font-size-lg;
+              font-weight: $font-weight-300;
+            }
+
+            & > .description {
+              display: block;
+              margin-top: $margin-md;
+              font-size: $font-size-md;
+              font-weight: $font-weight-300;
+            }
+          }
+
+          & > .al-content {
+            @include d-flex;
+            @include flex-direction(column);
+
+            & > .al-form {
+              width: 100%;
+              margin-bottom: $margin-lg;
+
+              & > div {
+                display: block;
+                margin-top: $margin-md;
+
+                & > div {
+                  width: 100%;
+                }
+              }
+
+              & > label {
+                margin-top: $margin-md;
+
+                & > span {
+                  font-size: $font-size-sm;
+                  font-weight: $font-weight-400;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

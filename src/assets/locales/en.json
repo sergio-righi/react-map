@@ -1,0 +1,283 @@
+{
+  "action": {
+    "add": "Add",
+    "back": "Back",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "continue": "Continue",
+    "create": "New",
+    "delete": "Delete",
+    "done": "Done",
+    "edit": "Edit",
+    "email_design": "E-mail me the design",
+    "filter": "Filter",
+    "generate_design": "Generate Design",
+    "list_view": "List View",
+    "make_appointment": "Make Appointment",
+    "next": "Next",
+    "update": "Update",
+    "remove": "Remove",
+    "resend": "Send it again",
+    "restart": "Restart",
+    "save": "Save",
+    "submit": "Submit",
+    "view_info": "View Info",
+    "view_proposal": "View Proposal"
+  },
+  "conjunction": {
+    "at": "at"
+  },
+  "dialog": {
+    "closing": {
+      "title": "Closing Confirmation",
+      "message": "If you confirm this action, the popup will be closed."
+    },
+    "delete": {
+      "title": "Delete Confirmation",
+      "message": "If you confirm this action, this marker will be deleted."
+    }
+  },
+  "helper_text": {
+    "accent_color": "It will be used as the primary color for the app.",
+    "appointment_start": "The starting time for the appointment shift (in 24-hour format).",
+    "appointment_end": "The ending time for the appointment shift (in 24-hour format).",
+    "appointment_length": "The length of the appointment slot (in minutes).",
+    "brand": "The logo image of the company.",
+    "email_gmail": "It must be a Google Gmail account.",
+    "state_coverage": "States where there is service coverage. Empty means all.",
+    "utility_company": "The utility companies available to be selected."
+  },
+  "label": {
+    "address": "Address",
+    "availability": "Availability",
+    "average_bill": "Average Electricity Bill",
+    "booked": "Booked",
+    "brand": "Brand",
+    "city": "City",
+    "confirm_password": "Confirm Password",
+    "country_coverage": "Country Coverage",
+    "company_name": "Company Name",
+    "electricity_usage": "Electricity Usage (in kWh)",
+    "email": "E-mail",
+    "end_time": "End Time",
+    "first_name": "First Name",
+    "gender": "Gender",
+    "id": "ID",
+    "last_name": "Last Name",
+    "main_color": "Main Color",
+    "name": "Name",
+    "num_panels": "Number of panels",
+    "offset": "Offset",
+    "password": "Password",
+    "phone": "Phone",
+    "postal_code": "Postal Code",
+    "roof_age": "Roof Age",
+    "roof_type": "Roof Type",
+    "satellite": "Satellite",
+    "slot_length": "Slot Length",
+    "start_time": "Start Time",
+    "status": "Status",
+    "street": "Street",
+    "system_size": "System Size (in kW)",
+    "utility_company": "Utility Company",
+    "yearly_production": "Yearly Production (in kWh)"
+  },
+  "menu": {
+    "list": {
+      "create": "New List"
+    },
+    "marker": {
+      "activity_status": "Activity Status",
+      "delete": "Delete",
+      "edit": "Edit",
+      "generate_design": "Generate Design",
+      "saved_list": "Saved List",
+      "view_design": "View Design"
+    },
+    "saved_list": {
+      "archieve": {
+        "on": "Unarchieve",
+        "off": "Archieve"
+      },
+      "archieved": "Show Archieved",
+      "delete": "Delete",
+      "rename": "Rename",
+      "edit": "Edit",
+      "goto": "Go to",
+      "visibility": {
+        "on": "Show",
+        "off": "Hide"
+      }
+    }
+  },
+  "message": {
+    "auth": {
+      "account_confirmation": "Please verify your email address so you can sign in if even forget your password. We have sent an email to:",
+      "code_mismatch": "Confirmation code doesn't match",
+      "email_not_found": "There is no account associated with this email",
+      "email_not_valid": "The email address is not valid",
+      "email_provider": "The email provider must be GMAIL",
+      "email_resent": "The confirmation email has been resent",
+      "email_sent": "An email has been sent to the provided email. Check it out for the next steps.",
+      "email_taken": "There is an account associated with this email",
+      "not_authorized": "You are not authorized to access the app",
+      "password_rule": [
+        "Be at least 8 characters long.",
+        "Contain at least one uppercase and one lowercase character.",
+        "Contain at least one number, one letter and one special character."
+      ],
+      "password_mistmatch": "The passwords do not match",
+      "password_updated": "The password has been updated",
+      "password_invalid": "The password doesn't follow the rules specified",
+      "pending_confirmation": "This account has not been confirmed yet.",
+      "reset_password": "You have requested a password reset. Your password must follow the rules below:",
+      "wrong_credentials": "The provided credentials do not exist"
+    },
+    "embedded": {
+      "appointment": {
+        "title": "Appointment Booking",
+        "subtitle": "Seize the Opportunity and Unlock Your Potential!"
+      },
+      "details": {
+        "average_bill": "What is your average monthly electric bill?",
+        "roof_age": "How old is your roof?",
+        "roof_type": "What type of roof do you have?",
+        "utility_company": "Which utility company are you with?"
+      },
+      "map": {
+        "not_found": "Address not found",
+        "search": "What is your home address?",
+        "marker": "If the marker is not correctly positioned, click on the map to adjust it"
+      },
+      "overview": {
+        "title": "Here is your tailored quote for {{address}}",
+        "description": "You can interact with the solar design. Simply click and unclick to show different production and savings estimates."
+      },
+      "quote": {
+        "title": "You're one step away from getting a solar quote!",
+        "description_roof": "Please fill out the details below, it will help us to get you started quickly and allow us to contact you in case you decide on moving forward with the intallation.",
+        "description_ground": "With ground mounts, we need to confirm the location of the installation for correct calculations. Please fill out the details below and we will contact you.",
+        "footnote": "Fields marked with * are required."
+      },
+      "survey": {
+        "question1": {
+          "title": "Do you own your home?",
+          "button": [
+            "Yes, I am the house owner",
+            "No, I am not the house owner"
+          ]
+        },
+        "question2": {
+          "title": "Where would you like to install solar panels for your home?",
+          "button": [
+            "On the Roof",
+            "On the ground"
+          ]
+        }
+      }
+    },
+    "feedback": {
+      "request_error": "Something went wrong while processing the request",
+      "request_success": "The record was successfully updated",
+      "required_fields": "Required fields are missing"
+    },
+    "greeting": {
+      "hello": "Hello, {{username}}",
+      "welcome_to": "Welcome to {{username}}",
+      "good_morning": "Good morning, {{username}}",
+      "good_afternoon": "Good afternoon, {{username}}",
+      "good_evening": "Good evening, {{username}}"
+    },
+    "map": {
+      "account_settings": "It controls the visibility of the tabs that display the information of the design to the user.",
+      "view": "Select one of the status above and the markers will be created on that."
+    },
+    "placeholder": {
+      "no_data": "No data to be displayed",
+      "no_design": "No design to be displayed",
+      "no_item": "No items",
+      "no_record": "No records to display",
+      "no_time_slot_available": "No time slot available"
+    },
+    "saved_list": {
+      "item_subtitle": "contain {{count}} items"
+    },
+    "validation": {
+      "is_required": "This field is required.",
+      "is_email_address": "It must be a valid email address.",
+      "is_equals": "It must be equals to {{name}}.",
+      "is_grater_than": "It must be grater than {{name}}.",
+      "is_less_than": "It must be less than {{name}}.",
+      "is_phone_number": "It must be a valid phone number.",
+      "has_match": "It must follow the pattern",
+      "min_length": "This field must be {{count}} characters long."
+    }
+  },
+  "page": {
+    "auth": {
+      "account_confirmation": {
+        "title": "Account confirmation",
+        "has_not_received": "Haven't received?"
+      },
+      "forgot_password": {
+        "title": "Forgot password",
+        "remember_it": "I have remembered it!"
+      },
+      "login": {
+        "title": "Login",
+        "has_no_account": "Try our service!"
+      },
+      "register": {
+        "title": "Register",
+        "has_account": "Already have an account?"
+      },
+      "reset_password": {
+        "title": "Reset password"
+      }
+    }
+  },
+  "placeholder": {
+    "choose_one": "Choose one option",
+    "email": "Enter your email address",
+    "first_name": "Enter your first name",
+    "file_selected": "{{count}} file(s) selected",
+    "last_name": "Enter your last name",
+    "not_set": "—",
+    "no_value": "—",
+    "number_only": "Enter only numbers",
+    "phone": "Enter your phone number",
+    "search_bar": "Search for a location",
+    "x_year": "{{count}} years"
+  },
+  "relative_date": {
+    "today": "today",
+    "today_at": "today at {{time}}",
+    "tomorrow": "tomorrow",
+    "tomorrow_at": "tomorrow at {{time}}",
+    "yesterday": "yesterday",
+    "yesterday_at": "yesterday at {{time}}",
+    "in_day": "in {{day}} days",
+    "day_ago": "{{day}} days ago"
+  },
+  "title": {
+    "account_settings": "Account Customization",
+    "appointment_booking": "Appointment Booking Availability",
+    "brand_identity": "Brand Identity",
+    "dashboard": "Dashboard",
+    "design": "Design",
+    "details": "Details",
+    "design_details": "Design",
+    "feature_settings": "Settings",
+    "filter_status": "Filter",
+    "finance": "Finance",
+    "home": "Home",
+    "house_details": "House",
+    "list": "List",
+    "map": "Map",
+    "overview": "Overview",
+    "owner_details": "Owner",
+    "property": "Property",
+    "saved_list": "Saved List",
+    "search": "Search"
+  }
+}

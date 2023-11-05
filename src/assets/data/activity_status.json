@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "name": "Not Interested",
+    "icon": "NotInterested"
+  },
+  {
+    "id": "2",
+    "name": "Open",
+    "icon": "Open"
+  },
+  {
+    "id": "3",
+    "name": "Attempting",
+    "icon": "Attempting"
+  },
+  {
+    "id": "4",
+    "name": "Engaged",
+    "icon": "Engaged"
+  },
+  {
+    "id": "5",
+    "name": "Presented",
+    "icon": "Presented"
+  },
+  {
+    "id": "6",
+    "name": "Signed",
+    "icon": "Signed"
+  },
+  {
+    "id": "7",
+    "name": "Completed",
+    "icon": "Completed"
+  },
+  {
+    "id": "8",
+    "name": "Credit Check",
+    "icon": "CreditCheck"
+  },
+  {
+    "id": "9",
+    "name": "Pending",
+    "icon": "Pending"
+  },
+  {
+    "id": "10",
+    "name": "Close",
+    "icon": "Close"
+  }
+]

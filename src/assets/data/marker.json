@@ -1,0 +1,37 @@
+[
+  {
+    "lat": 37.69317568927556,
+    "lng": -121.77100025234392,
+    "address": "2433 Farnsworth Drive, Livermore, California 94551, United States",
+    "status": "0",
+    "id": "1693231698427"
+  },
+  {
+    "lat": 37.69364381193475,
+    "lng": -121.77116840224481,
+    "address": "2424 Farnsworth Drive, Livermore, California 94551, United States",
+    "status": "0",
+    "id": "1693231726816"
+  },
+  {
+    "lat": 37.69211477670301,
+    "lng": -121.76940895645994,
+    "address": "2486 Harewood Drive, Livermore, California 94551, United States",
+    "status": "0",
+    "id": "1693231754554"
+  },
+  {
+    "lat": 37.69238786242833,
+    "lng": -121.77176040236264,
+    "address": "2314 Farnsworth Drive, Livermore, California 94551, United States",
+    "status": "0",
+    "id": "1693231777904"
+  },
+  {
+    "lat": 37.693034413207926,
+    "lng": -121.76845443562635,
+    "address": "",
+    "status": "0",
+    "id": "1693231798761"
+  }
+]

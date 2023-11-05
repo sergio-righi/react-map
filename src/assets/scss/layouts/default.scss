@@ -1,0 +1,18 @@
+// TODO : remove this when we have a better solution
+
+.mapboxgl-ctrl-top-right {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+
+  .mapboxgl-ctrl-group {
+    left: 50%;
+    bottom: 40px;
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    transform: translateX(-50%);
+  }
+}
