@@ -133,7 +133,7 @@ export const View = (props: Props) => {
       pl={theme.component.navbar.width / theme.spacing.factor}
     >
       <Vendor.Mapbox
-        layers={true}
+        layers={false}
         zoom={props.zoom}
         coordinate={props.coordinate}
         markers={props.markers}

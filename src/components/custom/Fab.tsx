@@ -76,6 +76,7 @@ export const Fab = forwardRef(
           position: "fixed",
           boxShadow: theme.palette.shadow,
           borderRadius: theme.border.radius,
+          backgroundColor: theme.palette.theme,
           top: top ? theme.spacing.default : undefined,
           left: left ? theme.spacing.default : undefined,
           right: right ? theme.spacing.default : undefined,
